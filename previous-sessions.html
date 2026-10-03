@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الجلسات السابقة</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@dawod/thmanyah-font-web/index.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <h1>الجلسات السابقة</h1>
+    </header>
+<div class="back-button">
+    <button id="back-to-dashboard">
+        العودة للواجهة الرئيسية
+    </button>
+</div>
+
+    <main class="dashboard">
+
+        <section class="previous-stats">
+            <div>
+                <h2>إجمالي ساعات الدراسة</h2>
+                <p id="total-study-time">00:00:00</p>
+            </div>
+
+            <div>
+                <h2>عدد الجلسات</h2>
+                <p id="session-count">0</p>
+            </div>
+        </section>
+
+        <section class="sessions-list">
+            <h2>الجلسات</h2>
+
+<div class="sessions-table-wrapper">
+
+    <table class="sessions-table">
+
+        <thead>
+            <tr>
+                <th>التاريخ</th>
+                <th>المادة</th>
+                <th>مدة الجلسة</th>
+                         <th>الملاحظات</th>
+            </tr>
+        </thead>
+
+        <tbody id="sessions-container">
+        </tbody>
+
+    </table>
+
+</div>        </section>
+
+    </main>
+
+
+<script src="previous-sessions.js"></script> 
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>الإعدادات</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@dawod/thmanyah-font-web/index.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <header class="header">
+
+        <h1>
+            الإعدادات
+        </h1>
+
+    </header>
+
+
+    <main class="dashboard">
+
+
+        <!-- المواد الدراسية -->
+
+        <section class="settings-section">
+
+            <h2>
+                المواد الدراسية
+            </h2>
+
+            <div id="subjects-container">
+            </div>
+
+        </section>
+
+
+        <!-- إضافة مادة -->
+
+        <section class="add-subject-section">
+
+            <label for="new-subject">
+                إضافة مادة جديدة
+            </label>
+
+            <input
+                type="text"
+                id="new-subject"
+                placeholder="اكتب اسم المادة"
+            >
+
+            <button id="add-subject">
+                إضافة المادة
+            </button>
+
+        </section>
+
+
+        <!-- منطقة الخطر -->
+
+        <section class="danger-zone">
+
+            <h2>
+                منطقة الخطر
+            </h2>
+
+            <p>
+                حذف جميع بيانات الدراسة والجلسات والمواد
+            </p>
+
+            <button id="delete-all-data">
+                حذف جميع البيانات
+            </button>
+
+        </section>
+
+
+        <!-- العودة -->
+
+        <section class="back-button">
+
+            <button id="back-to-dashboard">
+                العودة للواجهة الرئيسية
+            </button>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ملف JavaScript -->
+
+    <script src="settings.js"></script>
+
+</body>
+
+</html>

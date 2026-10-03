@@ -1,0 +1,837 @@
+body {
+    font-family: "Thmanyah Sans", sans-serif;
+    direction: rtl;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f5f2;
+    color: #222;
+
+    position: relative;
+}
+
+.header {
+    text-align: center;
+    padding: 55px 20px 30px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.dashboard {
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* التاريخ */
+
+.date-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.current-date {
+    margin: 0;
+    font-size: 18px;
+}
+
+/* ملخص الدراسة */
+
+.study-summary {
+    background-color: white;
+    padding: 25px;
+    border-radius: 16px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.study-summary h2 {
+    margin: 0 0 10px;
+    font-size: 20px;
+}
+
+.total-time {
+    font-size: 42px;
+    font-weight: bold;
+    margin: 0;
+    direction: ltr;
+}
+
+.current-session {
+    margin: 15px 0 0;
+    font-size: 16px;
+}
+
+.current-session span {
+    direction: ltr;
+    display: inline-block;
+    font-weight: bold;
+}
+
+/* اختيار المادة */
+
+.subject-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    margin-bottom: 20px;
+}
+
+.subject-section label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.subject-section select {
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+/* الملاحظات */
+
+.notes-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    margin-bottom: 20px;
+}
+
+.notes-section label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.notes-section textarea {
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    font-family: inherit;
+    font-size: 16px;
+    resize: vertical;
+}
+
+/* أزرار الجلسة */
+
+.session-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.session-controls button {
+    flex: 1;
+    padding: 13px 10px;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* الأزرار المعطلة */
+
+.session-controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* التحفيز */
+
+.motivation {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 18px;
+}
+
+/* الجلسات السابقة */
+
+.previous-sessions {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.previous-sessions button {
+    padding: 13px 25px;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* زر العودة للواجهة الرئيسية */
+
+.back-button {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.back-button button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* جدول الجلسات السابقة */
+
+.sessions-table-wrapper {
+    overflow-x: auto;
+}
+
+.sessions-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+}
+
+.sessions-table th,
+.sessions-table td {
+    padding: 12px;
+    text-align: right;
+    border-bottom: 1px solid #ddd;
+}
+
+.sessions-table th {
+    font-weight: bold;
+}
+
+.streak-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: white;
+    padding: 18px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+}
+
+.streak-fire {
+    font-size: 38px;
+}
+
+.streak-number {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.streak-label {
+    margin: 0;
+    font-size: 15px;
+}
+
+
+
+.language-button {
+    position: fixed;
+    top: 25px;
+    right: 80px;
+    z-index: 1000;
+
+
+    width: 44px;
+    height: 44px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border: none;
+
+    color: #222;
+
+    cursor: pointer;
+}
+
+.settings-button svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+}
+
+.settings-button:hover {
+    opacity: 0.65;
+}
+
+
+.settings-button,
+.language-button {
+    position: fixed;
+} 
+
+
+.settings-button {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 1000;
+
+
+    height: 44px;
+    min-width: 44px;
+
+    padding: 0 8px;
+
+    background-color: transparent;
+    border: none;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.language-button:hover {
+    opacity: 0.65;
+}
+
+.language-button {
+    position: fixed;
+    top: 25px;
+    right: 80px;
+
+    height: 44px;
+    min-width: 44px;
+
+    padding: 0 8px;
+
+    background-color: transparent;
+    border: none;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.language-button:hover {
+    opacity: 0.65;
+}
+
+
+
+/* =========================
+   صفحة الإعدادات
+========================= */
+
+.settings-section,
+.add-subject-section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+}
+
+.settings-section h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+
+/* قائمة المواد */
+
+#subjects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.setting-subject {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 16px;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+
+    font-size: 16px;
+}
+
+
+/* زر حذف المادة */
+
+.delete-subject {
+    padding: 8px 14px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #f1f1f1;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.delete-subject:hover {
+    opacity: 0.65;
+}
+
+
+/* إضافة مادة */
+
+.add-subject-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-subject-section label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.add-subject-section input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 14px;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    background-color: white;
+
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.add-subject-section input:focus {
+    outline: none;
+    border-color: #222;
+}
+
+
+/* زر إضافة المادة */
+
+#add-subject {
+    padding: 13px 20px;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: #222;
+    color: white;
+
+    font-family: inherit;
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+#add-subject:hover {
+    opacity: 0.85;
+}
+
+
+/* زر العودة */
+
+.back-button {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.back-button button {
+    padding: 12px 25px;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: white;
+
+    font-family: inherit;
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.back-button button:hover {
+    opacity: 0.65;
+}
+
+/* =========================
+   منطقة الخطر
+========================= */
+
+.danger-zone {
+    background-color: white;
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    border: 1px solid #e5e5e5;
+}
+
+.danger-zone h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.danger-zone p {
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+#delete-all-data {
+    width: 100%;
+    padding: 13px 20px;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: #222;
+    color: white;
+
+    font-family: inherit;
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+#delete-all-data:hover {
+    opacity: 0.8;
+}
+
+/* =========================
+   دعم اتجاه اللغة
+========================= */
+
+html[dir="ltr"] .header {
+    text-align: center;
+}
+
+html[dir="ltr"] .date-section {
+    text-align: center;
+}
+
+html[dir="ltr"] .study-summary {
+    text-align: center;
+}
+
+html[dir="ltr"] .subject-section,
+html[dir="ltr"] .notes-section {
+    text-align: left;
+}
+
+html[dir="ltr"] .subject-section label,
+html[dir="ltr"] .notes-section label,
+.session-type-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    margin-bottom: 20px;
+}
+
+.session-type-section label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.session-type-section select {
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    font-family: inherit;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.session-type-section label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.session-type-section select {
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    font-family: inherit;
+    font-size: 16px;
+}
+html[dir="ltr"] select,
+html[dir="ltr"] textarea,
+html[dir="ltr"] input {
+    text-align: left;
+    direction: ltr;
+}
+
+html[dir="ltr"] .current-session {
+    text-align: center;
+}
+
+html[dir="ltr"] .motivation {
+    text-align: center;
+}
+
+html[dir="ltr"] .previous-sessions {
+    text-align: center;
+}
+
+
+html[dir="ltr"] .session-controls {
+    direction: ltr;
+}
+
+/* =========================
+   Settings - English LTR
+========================= */
+
+html[dir="ltr"] .settings-section,
+html[dir="ltr"] .add-subject-section,
+html[dir="ltr"] .danger-zone {
+    direction: ltr;
+    text-align: left;
+}
+
+
+/* عنوان الأقسام */
+
+html[dir="ltr"] .settings-section h2,
+html[dir="ltr"] .add-subject-section label,
+html[dir="ltr"] .danger-zone h2,
+html[dir="ltr"] .danger-zone p {
+    text-align: left;
+}
+
+
+/* قائمة المواد */
+
+html[dir="ltr"] .setting-subject {
+    direction: ltr;
+
+    text-align: left;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* اسم المادة */
+
+html[dir="ltr"] .setting-subject span {
+    text-align: left;
+}
+
+
+/* زر الحذف */
+
+html[dir="ltr"] .delete-subject {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+
+/* خانة إضافة المادة */
+
+html[dir="ltr"] .add-subject-section input {
+    direction: ltr;
+    text-align: left;
+}
+
+
+/* زر العودة يبقى في المنتصف */
+
+html[dir="ltr"] .back-button {
+    text-align: center;
+}
+
+.no-subjects-message {
+    margin-top: 10px;
+    margin-bottom: 0;
+
+    font-size: 14px;
+
+    text-align: center;
+
+    opacity: 0.7;
+}
+
+html[dir="ltr"] .no-subjects-message {
+    text-align: left;
+}
+
+.task-section {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.task-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    text-align: right;
+}
+
+#session-task {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 80px;
+    padding: 12px;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 16px;
+      
+}
+
+html[dir="ltr"] .task-section label {
+    text-align: left;
+}
+
+/* =========================
+   تنسيق حقول الدراسة
+========================= */
+
+.subject-section,
+.session-task-section,
+.session-type-section,
+.notes-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+/* =========================
+   المسافات بين الأقسام
+========================= */
+
+/* العربي */
+html[dir="rtl"] .session-task-section,
+html[dir="rtl"] .session-type-section,
+html[dir="rtl"] .notes-section {
+    margin-top: 15px;
+}
+
+
+/* الإنجليزي */
+html[dir="ltr"] .session-task-section,
+html[dir="ltr"] .session-type-section,
+html[dir="ltr"] .notes-section {
+    margin-top: 8px;
+}
+
+
+/* =========================
+   حقول المهام والملاحظات
+========================= */
+
+.session-task-section textarea,
+.notes-section textarea {
+    min-height: 80px;
+    height: 80px;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   رسالة إضافة المواد
+========================= */
+
+.no-subjects-message {
+    margin-top: 6px;
+    margin-bottom: 0;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+html[dir="ltr"] .no-subjects-message {
+    text-align: left;
+}
+
+
+/* FINAL FORM SPACING */
+
+.subject-section,
+.session-task-section,
+.session-type-section,
+.notes-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 14px !important;
+}
+
+.session-task-section {
+    margin-top: 10px !important;
+}
+
+.session-type-section {
+    margin-top: 8px !important;
+}
+
+.notes-section {
+    margin-top: 8px !important;
+}
+
+
+/* Task Status Modal */
+
+.task-status-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.task-status-box {
+    width: min(90%, 400px);
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.task-status-box h2 {
+    margin: 0 0 10px;
+    font-size: 22px;
+}
+
+.task-status-box p {
+    margin: 0 0 20px;
+    opacity: 0.7;
+}
+
+.task-status-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task-status-buttons button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+}
