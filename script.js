@@ -33,6 +33,7 @@ let timer = null;
 let sessionState = "not-started";
 let sessionStartTime = null;
 let pendingSession = null;
+
 /* =========================
    عناصر الصفحة
 ========================= */
@@ -70,11 +71,23 @@ const previousSessionsButton =
 const settingsButton =
     document.getElementById("settings-button");
 
-    const languageButton =
+const plansButton =
+    document.getElementById("plans-button");
+
+plansButton.addEventListener(
+    "click",
+    () => {
+        window.location.href =
+            "plans.html";
+    }
+);
+
+
+
+const languageButton =
     document.getElementById("language-button");
 
-
-    const taskStatusModal =
+const taskStatusModal =
     document.getElementById("task-status-modal");
 
 const taskCompletedButton =
@@ -299,9 +312,10 @@ startButton.addEventListener(
 
         if (subjectSelect.value === "") {
 
-           alert(
-    translations[currentLanguage].chooseSubjectAlert
-);
+            alert(
+                translations[currentLanguage].chooseSubjectAlert
+            );
+
             return;
 
         }
@@ -378,7 +392,7 @@ startButton.addEventListener(
 
 
                         alert(
-                            "انتهت جلسة البومودورو 🎉"
+                            translations[currentLanguage].pomodoroFinished
                         );
 
                     }
@@ -502,8 +516,8 @@ resumeButton.addEventListener(
 
 
                         alert(
-    translations[currentLanguage].pomodoroFinished
-);
+                            translations[currentLanguage].pomodoroFinished
+                        );
 
                     }
 
@@ -556,83 +570,6 @@ if (savedSessions) {
 
 }
 
-
-/* =========================
-   إضافة جلسة
-========================= */
-
-addSessionButton.addEventListener(
-    "click",
-    () => {
-
-        if (subjectSelect.value === "") {
-
-            alert("اختر المادة أولًا");
-
-            return;
-
-        }
-
-
-        let sessionDuration =
-            elapsedSeconds;
-
-
-        if (
-            sessionTypeSelect.value ===
-            "pomodoro"
-        ) {
-
-            sessionDuration =
-                (25 * 60) -
-                remainingSeconds;
-
-        }
-
-
-        if (sessionDuration <= 0) {
-
-            alert(
-                "لم تبدأ جلسة الدراسة بعد."
-            );
-
-            return;
-
-        }
-
-
-        const selectedSubject =
-            subjectSelect.options[
-                subjectSelect.selectedIndex
-            ].text;
-
-
-        const note =
-            sessionNote.value.trim();
-
-
-        const sessionDate =
-            new Date().toISOString();
-
-
-        const session = {
-    subject: selectedSubject,
-    duration: sessionDuration,
-    date: sessionDate,
-    note: note,
-    task: sessionTask.value.trim(),
-    taskStatus: null,
-    startTime: sessionStartTime
-};
-
-
-const task = sessionTask.value.trim();
-
-if (task !== "") {
-    pendingSession = session;
-    taskStatusModal.style.display = "flex";
-    return;
-}
 function saveSession(session) {
 
     sessions.push(session);
@@ -670,51 +607,143 @@ function saveSession(session) {
     updateStreak();
 
 }
-        
+
+/* =========================
+   إضافة جلسة
+========================= */
+
+addSessionButton.addEventListener(
+    "click",
+    () => {
+
+        if (subjectSelect.value === "") {
+
+            alert(
+                translations[currentLanguage].chooseSubjectAlert
+            );
+
+            return;
+        }
 
 
-        /* إيقاف المؤقت */
-
-        clearInterval(timer);
-
-        timer = null;
+        let sessionDuration =
+            elapsedSeconds;
 
 
-        /* تصفير العدادات */
+        if (
+            sessionTypeSelect.value ===
+            "pomodoro"
+        ) {
 
-        elapsedSeconds = 0;
+            sessionDuration =
+                (25 * 60) -
+                remainingSeconds;
 
-        remainingSeconds = 0;
-
-
-        timerElement.textContent =
-            "00:00:00";
-
-
-        /* إعادة الحالة */
-
-        sessionState =
-            "not-started";
+        }
 
 
-        updateButtons();
+        if (sessionDuration <= 0) {
+
+            alert(
+                translations[currentLanguage].sessionNotStarted
+            );
+
+            return;
+        }
 
 
-        /* إعادة الاختيارات */
-
-        subjectSelect.value = "";
-
-        sessionNote.value = "";
-
-        sessionTypeSelect.value =
-            "normal";
+        const selectedSubject =
+            subjectSelect.options[
+                subjectSelect.selectedIndex
+            ].text;
 
 
-        /* تحديث الإحصائيات */
+        const note =
+            sessionNote.value.trim();
 
-        updateTodayTotal();
 
-        updateStreak();
+        const sessionDate =
+            new Date().toISOString();
+
+
+        const session = {
+
+            subject: selectedSubject,
+
+            duration: sessionDuration,
+
+            date: sessionDate,
+
+            note: note,
+
+            task: sessionTask.value.trim(),
+
+            taskStatus: null,
+
+            startTime: sessionStartTime
+
+        };
+
+
+        const task =
+            sessionTask.value.trim();
+
+
+        if (task !== "") {
+
+            pendingSession = session;
+
+            taskStatusModal.style.display =
+                "flex";
+
+            return;
+        }
+
+
+        saveSession(session);
+
+    }
+);
+
+
+/* =========================
+   حالة المهمة
+========================= */
+
+taskCompletedButton.addEventListener(
+    "click",
+    () => {
+
+        pendingSession.taskStatus =
+            "completed";
+
+        saveSession(pendingSession);
+
+    }
+);
+
+
+taskPartialButton.addEventListener(
+    "click",
+    () => {
+
+        pendingSession.taskStatus =
+            "partial";
+
+        saveSession(pendingSession);
+
+    }
+);
+
+
+taskNotCompletedButton.addEventListener(
+    "click",
+    () => {
+
+        pendingSession.taskStatus =
+            "not-completed";
+
+        saveSession(pendingSession);
 
     }
 );
@@ -869,6 +898,8 @@ const translations = {
 
         normalSession: "جلسة عادية",
 
+        plansButton: "الخطط",
+
         pomodoroSession:
             "جلسة بومودورو - 25 دقيقة",
 
@@ -890,6 +921,8 @@ const translations = {
 
         previousSessions:
             "الجلسات السابقة",
+
+        home: "الواجهة الرئيسية",
 
         streakLabel:
             "يوم متواصل",
@@ -929,6 +962,8 @@ taskNotCompleted: "لم تتم"
 
         normalSession: "Normal session",
 
+        plansButton: "Plans",
+
         pomodoroSession:
             "Pomodoro session - 25 minutes",
 
@@ -938,6 +973,9 @@ taskNotCompleted: "لم تتم"
             "Write a note about your study session...",
 
         startSession: "Start session",
+
+
+        home: "Home",
 
         pauseSession: "Pause",
 
@@ -994,6 +1032,13 @@ function updateLanguage() {
             ? "rtl"
             : "ltr";
 
+
+
+    document.getElementById(
+    "plans-button"
+).textContent =
+    language.plansButton;
+
  const taskLabel = document.getElementById("session-task-label");
 const taskInput = document.getElementById("session-task");
 
@@ -1021,6 +1066,16 @@ taskNotCompletedButton.textContent =
     language.taskNotCompleted;
     
     }
+
+    homeButton.setAttribute(
+    "aria-label",
+    language.home
+);
+
+homeButton.setAttribute(
+    "title",
+    language.home
+);
 }
 
     document.title =
@@ -1199,4 +1254,3 @@ updateTodayTotal();
 updateStreak();
 
 updateLanguage();
-

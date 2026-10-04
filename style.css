@@ -835,3 +835,626 @@ html[dir="ltr"] .no-subjects-message {
     font-family: inherit;
     font-size: 16px;
 }
+
+/* =========================
+   تفاصيل الجلسات السابقة
+========================= */
+
+.session-details-cell {
+    width: 50px;
+    text-align: center;
+}
+
+
+.session-details-button {
+    border: none;
+    background: transparent;
+
+    font-family: inherit;
+    font-size: 20px;
+
+    cursor: pointer;
+
+    width: 35px;
+    height: 35px;
+
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.session-details-button:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+
+/* صف التفاصيل */
+
+.session-details-row {
+    background: rgba(0, 0, 0, 0.025);
+}
+
+
+.session-details-row td {
+    padding: 0;
+}
+
+
+/* صندوق التفاصيل */
+
+.session-details {
+    padding: 18px 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+/* كل معلومة */
+
+.session-detail-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 8px 0;
+}
+
+
+/* اسم المعلومة */
+
+.session-detail-label {
+    font-weight: 600;
+}
+
+
+/* =========================
+   أزرار صفحة الجلسات السابقة
+========================= */
+
+.previous-page-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 20px auto;
+
+    width: min(90%, 900px);
+}
+
+
+.previous-page-actions button {
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 10px 16px;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    background: rgba(0, 0, 0, 0.05);
+}
+
+
+.previous-page-actions button:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   محاذاة جدول الجلسات حسب اللغة
+========================= */
+
+/* English */
+
+html[dir="ltr"] .sessions-table th,
+html[dir="ltr"] .sessions-table td {
+    text-align: left;
+}
+
+
+/* Arabic */
+
+html[dir="rtl"] .sessions-table th,
+html[dir="rtl"] .sessions-table td {
+    text-align: right;
+}
+
+
+/* زر التفاصيل */
+
+html[dir="ltr"] .session-details-cell,
+html[dir="rtl"] .session-details-cell {
+    text-align: center;
+}
+
+/* =========================
+   صفحة الخطط والتذكيرات
+========================= */
+
+
+/* =========================
+   التقويم
+========================= */
+
+.plans-calendar-section {
+    width: min(95%, 1000px);
+    margin: 30px auto;
+}
+
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+
+.calendar-header h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+
+.calendar-header button {
+    border: none;
+    background: transparent;
+
+    font-family: inherit;
+    font-size: 28px;
+
+    cursor: pointer;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 10px;
+}
+
+
+.calendar-header button:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+
+/* شبكة التقويم */
+
+.calendar {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 6px;
+}
+
+
+/* أيام الأسبوع */
+
+.calendar-weekday {
+    text-align: center;
+
+    font-weight: 600;
+
+    padding: 10px 5px;
+
+    font-size: 14px;
+}
+
+
+/* الأيام */
+
+.calendar-day {
+    min-height: 65px;
+
+    border: 1px solid rgba(0, 0, 0, 0.08);
+
+    border-radius: 10px;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    cursor: default;
+
+    position: relative;
+}
+
+
+.calendar-day:hover {
+    background: rgba(0, 0, 0, 0.025);
+}
+
+
+.calendar-empty {
+    min-height: 65px;
+}
+
+
+/* =========================
+   ألوان الخطط والتذكيرات
+========================= */
+
+.calendar-day.has-study-plan {
+    background: rgba(70, 130, 180, 0.18);
+
+    border-color:
+        rgba(70, 130, 180, 0.35);
+}
+
+
+.calendar-day.has-reminder {
+    background: rgba(230, 180, 60, 0.22);
+
+    border-color:
+        rgba(230, 180, 60, 0.45);
+}
+
+
+/*
+   إذا كان اليوم فيه خطة + تذكير
+*/
+
+.calendar-day.has-study-plan.has-reminder {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(70, 130, 180, 0.18) 50%,
+            rgba(230, 180, 60, 0.22) 50%
+        );
+}
+
+
+/* =========================
+   الفهرس
+========================= */
+
+.plans-index-section {
+    width: min(95%, 1000px);
+
+    margin: 35px auto;
+}
+
+
+.plans-index-section h2 {
+    margin-bottom: 15px;
+}
+
+
+.plans-legend {
+    display: flex;
+
+    gap: 25px;
+
+    margin-bottom: 20px;
+
+    flex-wrap: wrap;
+}
+
+
+.legend-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.legend-color {
+    width: 14px;
+    height: 14px;
+
+    border-radius: 4px;
+
+    display: inline-block;
+}
+
+
+.study-plan-color {
+    background: rgba(70, 130, 180, 0.55);
+}
+
+
+.reminder-color {
+    background: rgba(230, 180, 60, 0.65);
+}
+
+
+.plan-index-item {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    padding: 10px 0;
+
+    border-bottom:
+        1px solid rgba(0, 0, 0, 0.06);
+}
+
+
+.plan-index-item small {
+    opacity: 0.7;
+}
+
+
+/* =========================
+   جدول الخطط
+========================= */
+
+.plans-table-section {
+    width: min(95%, 1000px);
+
+    margin: 35px auto 60px;
+}
+
+
+.plans-section-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 15px;
+}
+
+
+.plans-section-header h2 {
+    margin: 0;
+}
+
+
+#add-plan-button {
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 11px 16px;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+#add-plan-button:hover {
+    opacity: 0.85;
+}
+
+
+.plans-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+.plans-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 700px;
+}
+
+
+.plans-table th,
+.plans-table td {
+    padding: 13px 12px;
+
+    border-bottom:
+        1px solid rgba(0, 0, 0, 0.08);
+
+    text-align: right;
+
+    vertical-align: middle;
+}
+
+
+.plans-table th {
+    font-weight: 600;
+}
+
+
+/* English */
+
+html[dir="ltr"] .plans-table th,
+html[dir="ltr"] .plans-table td {
+    text-align: left;
+}
+
+
+/* =========================
+   نافذة الإضافة
+========================= */
+
+.plan-modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.35);
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 1000;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+}
+
+
+.plan-modal-box {
+    width: min(100%, 450px);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.plan-modal-box h2 {
+    margin: 0 0 10px;
+}
+
+
+.plan-modal-box label {
+    font-weight: 600;
+
+    margin-top: 5px;
+}
+
+
+.plan-modal-box input,
+.plan-modal-box select,
+.plan-modal-box textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 11px;
+
+    border:
+        1px solid rgba(0, 0, 0, 0.15);
+
+    border-radius: 9px;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    background: white;
+}
+
+
+.plan-modal-box textarea {
+    min-height: 80px;
+
+    resize: vertical;
+}
+
+
+/* =========================
+   أزرار النافذة
+========================= */
+
+.plan-modal-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 10px;
+}
+
+
+.plan-modal-buttons button {
+    flex: 1;
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 12px;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+.plans-button {
+    position: fixed;
+
+    top: 25px;
+    right: 135px;
+
+    height: 44px;
+    min-width: 60px;
+
+    padding: 0 8px;
+
+    background: transparent;
+    border: none;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    z-index: 1000;
+}
+
+.plans-button:hover {
+    opacity: 0.65;
+}
+
+
+.home-button {
+    position: fixed;
+
+    top: 25px;
+    right: 190px;
+
+    height: 44px;
+    min-width: 44px;
+
+    padding: 0 8px;
+
+    background: transparent;
+    border: none;
+
+    font-family: inherit;
+    font-size: 24px;
+
+    cursor: pointer;
+
+    z-index: 1000;
+}
+
+.home-button:hover {
+    opacity: 0.65;
+}

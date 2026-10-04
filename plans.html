@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>الخطة والتذكيرات</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <!-- =========================
+         زر اللغة
+    ========================== -->
+
+    <button
+        id="language-button"
+        class="language-button"
+        type="button"
+    >
+        EN
+    </button>
+
+
+    <!-- =========================
+         زر الإعدادات
+    ========================== -->
+
+    <button
+        id="settings-button"
+        class="settings-button"
+        type="button"
+        aria-label="الإعدادات"
+        title="الإعدادات"
+    >
+
+        <!-- نفس أيقونة الإعدادات -->
+
+        <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+
+            <path
+                d="M12 15.5
+                   A3.5 3.5 0 1 0
+                   12 8.5
+                   A3.5 3.5 0 0 0
+                   12 15.5Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+            />
+
+            <path
+                d="M19.4 15
+                   L21 16
+                   L19 19
+                   L17.3 18
+                   C16.8 18.3 16.3 18.6 15.7 18.8
+                   L15.5 21
+                   H12.5
+                   L12.3 18.8
+                   C11.7 18.6 11.2 18.3 10.7 18
+                   L9 19
+                   L7 16
+                   L8.6 15
+                   C8.5 14.4 8.5 13.8 8.6 13.2
+                   L7 12
+                   L9 9
+                   L10.7 10
+                   C11.2 9.7 11.7 9.4 12.3 9.2
+                   L12.5 7
+                   H15.5
+                   L15.7 9.2
+                   C16.3 9.4 16.8 9.7 17.3 10
+                   L19 9
+                   L21 12
+                   L19.4 13.2
+                   C19.5 13.8 19.5 14.4 19.4 15Z"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linejoin="round"
+            />
+
+        </svg>
+
+        
+
+    </button>
+
+    <button
+    id="home-button"
+    class="home-button"
+    type="button"
+   aria-label=""
+title=""
+
+
+>
+    <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <!-- سقف البيت -->
+    <path
+        d="M3 10L12 3L21 10"
+        stroke="currentColor"
+        stroke-width="1.7"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+
+    <!-- جسم البيت -->
+    <path
+        d="M4 9.5V21H20V9.5"
+        stroke="currentColor"
+        stroke-width="1.7"
+        stroke-linejoin="round"
+    />
+
+    <!-- الخط الفاصل بين السقف والجسم -->
+    <path
+        d="M4 10H20"
+        stroke="currentColor"
+        stroke-width="1.7"
+        stroke-linecap="round"
+    />
+
+    <!-- الباب -->
+    <path
+        d="M9 21V15H15V21"
+        stroke="currentColor"
+        stroke-width="1.7"
+        stroke-linejoin="round"
+    />
+</svg> 
+
+</button>
+
+    <!-- =========================
+         العنوان
+    ========================== -->
+
+    <header class="header">
+
+        <h1 id="page-title">
+            الخطة والتذكيرات
+        </h1>
+
+    </header>
+
+
+    <!-- =========================
+         التقويم
+    ========================== -->
+
+    <section class="plans-calendar-section">
+
+        <div class="calendar-header">
+
+            <button
+                id="previous-month"
+                type="button"
+            >
+                ‹
+            </button>
+
+
+            <h2 id="calendar-month">
+                أكتوبر 2026
+            </h2>
+
+
+            <button
+                id="next-month"
+                type="button"
+            >
+                ›
+            </button>
+
+        </div>
+
+
+        <div
+            id="calendar"
+            class="calendar"
+        >
+
+            <!-- سيتم إنشاء الأيام بواسطة JavaScript -->
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         الفهرس
+    ========================== -->
+
+    <section class="plans-index-section">
+
+        <h2 id="index-title">
+            الفهرس
+        </h2>
+
+
+        <div class="plans-legend">
+
+            <div class="legend-item">
+
+                <span class="legend-color study-plan-color"></span>
+
+                <span id="study-plan-label">
+                    الخطط الدراسية
+                </span>
+
+            </div>
+
+
+            <div class="legend-item">
+
+                <span class="legend-color reminder-color"></span>
+
+                <span id="reminder-label">
+                    الاختبارات والتذكيرات
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div id="plans-index">
+
+            <!-- ستظهر هنا الخطط والتذكيرات -->
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         الخطط
+    ========================== -->
+
+    <section class="plans-table-section">
+
+        <div class="plans-section-header">
+
+            <h2 id="plans-title">
+                الخطط
+            </h2>
+
+
+            <button
+                id="add-plan-button"
+                type="button"
+            >
+                + إضافة خطة / تذكير
+            </button>
+
+        </div>
+
+
+        <div class="plans-table-wrapper">
+
+            <table class="plans-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th id="plan-type-header">
+                            النوع
+                        </th>
+
+                        <th id="plan-subject-header">
+                            المادة
+                        </th>
+
+                        <th id="plan-from-header">
+                            من
+                        </th>
+
+                        <th id="plan-to-header">
+                            إلى
+                        </th>
+
+                        <th id="plan-content-header">
+                            الخطة / التذكير
+                        </th>
+
+                        <th id="plan-status-header">
+                            الحالة
+                        </th>
+ 
+                        <th id="plan-actions-header">الإجراءات</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="plans-container">
+
+                    <!-- الخطط ستظهر هنا -->
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         نافذة إضافة خطة
+    ========================== -->
+
+    <div
+        id="plan-modal"
+        class="plan-modal"
+    >
+
+        <div class="plan-modal-box">
+
+            <h2 id="modal-title">
+                إضافة خطة / تذكير
+            </h2>
+
+
+            <!-- النوع -->
+
+            <label for="plan-type" id="plan-type-label">
+                النوع
+            </label>
+
+            <select id="plan-type">
+
+                <option value="study-plan">
+                    خطة دراسية
+                </option>
+
+                <option value="reminder">
+                    تذكير / اختبار
+                </option>
+
+            </select>
+
+
+            <!-- المادة -->
+
+            <label for="plan-subject" id="plan-subject-label">
+                المادة
+            </label>
+
+            <select id="plan-subject">
+
+                <option value="">
+                    اختر المادة
+                </option>
+
+            </select>
+
+
+            <!-- من -->
+
+            <label for="plan-start-date" id="plan-start-label">
+                من
+            </label>
+
+            <input
+                id="plan-start-date"
+                type="date"
+            >
+
+
+            <!-- إلى -->
+
+            <label for="plan-end-date" id="plan-end-label">
+                إلى
+            </label>
+
+            <input
+                id="plan-end-date"
+                type="date"
+            >
+
+
+            <!-- المحتوى -->
+
+            <label for="plan-content" id="plan-content-label">
+                ماذا ستدرسين / التذكير
+            </label>
+
+            <textarea
+                id="plan-content"
+                placeholder="مثال: مراجعة Chapter 1 - 3"
+            ></textarea>
+
+
+            <!-- ملاحظة -->
+
+            <label for="plan-note" id="plan-note-label">
+                ملاحظة
+            </label>
+
+            <textarea
+                id="plan-note"
+                placeholder="ملاحظة إضافية..."
+            ></textarea>
+
+
+            <!-- الأزرار -->
+
+            <div class="plan-modal-buttons">
+
+                <button
+                    id="cancel-plan-button"
+                    type="button"
+                >
+                    إلغاء
+                </button>
+
+
+                <button
+                    id="save-plan-button"
+                    type="button"
+                >
+                    حفظ
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="plans.js"></script>
+
+</body>
+
+</html>
+
