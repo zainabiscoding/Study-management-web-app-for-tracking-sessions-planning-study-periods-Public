@@ -11,7 +11,7 @@
 
 let currentLanguage =
     localStorage.getItem("studyLanguage") || "ar";
-
+ 
 
 const translations = {
 

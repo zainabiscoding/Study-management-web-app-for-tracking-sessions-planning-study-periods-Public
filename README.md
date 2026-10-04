@@ -42,4 +42,5 @@ The application uses browser Local Storage to save study sessions, subjects, stu
 
 ## Version
 
-Version 1.0
+Version 1.0   
+ZAINAB ALMULLA

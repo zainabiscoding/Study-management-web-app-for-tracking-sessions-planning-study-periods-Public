@@ -1065,7 +1065,7 @@ taskPartialButton.textContent =
 taskNotCompletedButton.textContent =
     language.taskNotCompleted;
     
-    }
+    } 
 
     homeButton.setAttribute(
     "aria-label",

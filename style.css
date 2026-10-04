@@ -1445,7 +1445,7 @@ html[dir="ltr"] .plans-table td {
     padding: 0 8px;
 
     background: transparent;
-    border: none;
+    border: none; 
 
     font-family: inherit;
     font-size: 24px;
